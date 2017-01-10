@@ -13,7 +13,12 @@ import com.br.com.plenaperformancerh.produto.produtosordenados.produto.controlle
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("\n\n<<< ---- Lista ordenada com a Data, Produto, Unidade e quantidade total de produto na unidade --- >>>.");
+        if (args.length < 1) {
+            System.out.println("System.out.println(\"\\n\\n<<< ---- Informe os produtos! --- >>> ");
+            System.exit(0);
+        }
+        
+        System.out.println("\n\n<<< ---- Lista ordenada com a Data, Produto, Unidade e quantidade total de produto na unidade. --- >>>");
         
         ProdutoController c = new ProdutoController();
         c.listByData();
