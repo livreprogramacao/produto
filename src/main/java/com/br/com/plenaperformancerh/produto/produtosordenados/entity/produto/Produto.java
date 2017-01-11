@@ -9,9 +9,15 @@ import java.util.Date;
  */
 public class Produto {
     
-    private Date data;
+    private String data;
     private String nome;
-    private Unidade unidade;
+    private String ordenacao;
     private Integer quantidade;
+
+    public Produto(String _data, String _produtoNome, String _ordenacao) {
+        this.data = _data;
+        this.nome = _produtoNome;
+        this.ordenacao = _ordenacao;
+    }
     
 }
