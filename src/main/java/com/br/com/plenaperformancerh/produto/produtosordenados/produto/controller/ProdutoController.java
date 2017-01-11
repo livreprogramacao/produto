@@ -20,19 +20,13 @@ public class ProdutoController {
     public void listByData() {
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
         
-        for(Produto p : produtosCollection) {
-            //System.out.format("\nData %s Produto %s Ordenação %s", p.getData(), p.getNome(), p.getOrdenacao());
-            System.out.println(p.getNome());
-        }
+        listProdutos();
     }
 
     public void listByProdutoNome() {
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por nome do produto --- >>>.");
 
-        for(Produto p : produtosCollection) {
-            //System.out.format("\nData %s Produto %s Ordenação %s", p.getData(), p.getNome(), p.getOrdenacao());
-            System.out.println(p.getNome());
-        }
+        listProdutos();
     }
 
     private void parseParameter(String[] parametros) {
@@ -57,5 +51,11 @@ public class ProdutoController {
         //System.out.println(produtosCollection.size());
     }
     private static final String DELIMITER = ":";
+
+    private void listProdutos() {
+        for(Produto p : produtosCollection) {
+            System.out.format("\nData: %s - Produto: %s  - Ordenação: %s", p.getData(), p.getNome(), p.getOrdenacao());
+        }
+    }
 
 }
