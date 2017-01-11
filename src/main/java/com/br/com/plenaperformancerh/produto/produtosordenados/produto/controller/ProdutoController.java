@@ -2,6 +2,7 @@ package com.br.com.plenaperformancerh.produto.produtosordenados.produto.controll
 
 import com.br.com.plenaperformancerh.produto.produtosordenados.produto.Produto;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class ProdutoController {
 
     public void listByProdutoNome() {
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por nome do produto --- >>>.");
-
+        Collections.sort(produtosCollection, new ProdutoNomeComparator());
         listProdutos();
     }
 
