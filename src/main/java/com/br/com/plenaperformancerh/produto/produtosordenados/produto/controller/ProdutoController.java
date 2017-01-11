@@ -16,7 +16,7 @@ import java.util.Map;
 public class ProdutoController {
 
     private List<Produto> produtosCollection = new ArrayList<Produto>();
-    private Map<String, List> unidadesMap = new HashMap<>();
+    private Map<String, Integer> unidadesMap = new HashMap<>();
 
     private static final String DELIMITER = ":";
 
@@ -66,11 +66,17 @@ public class ProdutoController {
         //System.out.println(produto);
         produtosCollection.add(produto);
         
+        if (!unidadesMap.containsKey(unidade)) {
+            unidadesMap.put(unidade, 1);
+        } else {
+            Integer value = unidadesMap.get(unidade);
+            unidadesMap.put(unidade, ++value);
+        }
     }
 
     private void listProdutos() {
         for (Produto p : produtosCollection) {
-            System.out.format("\nData: %5s - Produto: %-20s  - Unidade: %s - Quantidade total %s", p.getData(), p.getNome(), p.getUnidade(), "10");
+            System.out.format("\nData: %5s - Produto: %-20s  - Unidade: %s - Quantidade total: %s", p.getData(), p.getNome(), p.getUnidade(), unidadesMap.get(p.getUnidade()));
         }
     }
 
