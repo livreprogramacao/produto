@@ -37,6 +37,11 @@ public class ProdutoController {
             //System.out.println("Produto: " + p);
 
             fields = p.split(DELIMITER);
+            
+            if (fields.length < 4) {
+                System.out.format("\nParâmetro inválido: %s\n", p);
+                continue;
+            }
 
             data = fields[0];
             nome = fields[1];
