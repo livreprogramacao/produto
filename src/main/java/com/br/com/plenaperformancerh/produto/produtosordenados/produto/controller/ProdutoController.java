@@ -5,7 +5,9 @@ import com.br.com.plenaperformancerh.produto.produtosordenados.produto.comparato
 import com.br.com.plenaperformancerh.produto.produtosordenados.produto.comparator.ProdutoNomeComparator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -14,6 +16,9 @@ import java.util.List;
 public class ProdutoController {
 
     private List<Produto> produtosCollection = new ArrayList<Produto>();
+    private Map<String, List> unidadesMap = new HashMap<>();
+
+    private static final String DELIMITER = ":";
 
     public ProdutoController(String[] args) {
         parseParameter(args);
@@ -32,34 +37,36 @@ public class ProdutoController {
     }
 
     private void parseParameter(String[] parametros) {
-        Produto produto = null;
         String[] fields;
-        String data, nome, ordenacao, unidade;
 
         for (String p : parametros) {
             //System.out.println("Produto: " + p);
 
             fields = p.split(DELIMITER);
-            
+
             if (fields.length < 4) {
                 System.out.format("\nParâmetro Produto inválido: %s\n", p);
                 continue;
             }
 
-            data = fields[0];
-            nome = fields[1];
-            ordenacao = fields[2];
-            unidade = fields[3];
-
-            produto = new Produto(data, nome, ordenacao, unidade);
-
-            //System.out.println(produto);
-            produtosCollection.add(produto);
+            addProduto(fields);
         }
 
         //System.out.println(produtosCollection.size());
     }
-    private static final String DELIMITER = ":";
+
+    private void addProduto(String[] fields) {
+        String data = fields[0];
+        String nome = fields[1];
+        String ordenacao = fields[2];
+        String unidade = fields[3];
+        
+        Produto produto = new Produto(data, nome, ordenacao, unidade);
+        
+        //System.out.println(produto);
+        produtosCollection.add(produto);
+        
+    }
 
     private void listProdutos() {
         for (Produto p : produtosCollection) {
