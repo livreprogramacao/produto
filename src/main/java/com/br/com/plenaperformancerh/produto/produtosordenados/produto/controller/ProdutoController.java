@@ -1,6 +1,8 @@
 package com.br.com.plenaperformancerh.produto.produtosordenados.produto.controller;
 
 import com.br.com.plenaperformancerh.produto.produtosordenados.produto.Produto;
+import com.br.com.plenaperformancerh.produto.produtosordenados.produto.comparator.ProdutoDataComparator;
+import com.br.com.plenaperformancerh.produto.produtosordenados.produto.comparator.ProdutoNomeComparator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +21,7 @@ public class ProdutoController {
 
     public void listByData() {
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
-
+        Collections.sort(produtosCollection, new ProdutoDataComparator());
         listProdutos();
     }
 
@@ -40,7 +42,7 @@ public class ProdutoController {
             fields = p.split(DELIMITER);
             
             if (fields.length < 4) {
-                System.out.format("\nParâmetro inválido: %s\n", p);
+                System.out.format("\nParâmetro Produto inválido: %s\n", p);
                 continue;
             }
 
