@@ -1,25 +1,24 @@
 package com.br.com.plenaperformancerh.produto.produtosordenados.produto.controller;
 
-import com.br.com.plenaperformancerh.produto.produtosordenados.entity.produto.Produto;
+import com.br.com.plenaperformancerh.produto.produtosordenados.produto.Produto;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 /**
  *
- * @author user
+ * @author Fabio Santos Almeida livre.programacao at gmail.com
  */
 public class ProdutoController {
 
     private List<Produto> produtosCollection = new ArrayList<Produto>();
-    
+
     public ProdutoController(String[] args) {
         parseParameter(args);
     }
 
     public void listByData() {
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
-        
+
         listProdutos();
     }
 
@@ -31,30 +30,32 @@ public class ProdutoController {
 
     private void parseParameter(String[] parametros) {
         Produto produto = null;
-        
+        String[] fields;
+        String data, nome, ordenacao, unidade;
+
         for (String p : parametros) {
             //System.out.println("Produto: " + p);
 
-            String[] fields = p.split(DELIMITER);
+            fields = p.split(DELIMITER);
 
-            String data = fields[0];
-            String nome = fields[1];
-            String ordenacao = fields[2];
-            
-            produto = new Produto(data, nome, ordenacao);
-            
+            data = fields[0];
+            nome = fields[1];
+            ordenacao = fields[2];
+            unidade = fields[3];
+
+            produto = new Produto(data, nome, ordenacao, unidade);
+
             //System.out.println(produto);
-            
             produtosCollection.add(produto);
         }
-        
+
         //System.out.println(produtosCollection.size());
     }
     private static final String DELIMITER = ":";
 
     private void listProdutos() {
-        for(Produto p : produtosCollection) {
-            System.out.format("\nData: %s - Produto: %s  - Ordenação: %s", p.getData(), p.getNome(), p.getOrdenacao());
+        for (Produto p : produtosCollection) {
+            System.out.format("\nData: %5s - Produto: %-20s  - Unidade: %s - Quantidade total %s", p.getData(), p.getNome(), p.getUnidade(), "10");
         }
     }
 

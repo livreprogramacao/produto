@@ -6,10 +6,15 @@ Data, Produto, Ordenação.
 O sistema retornara uma lista ordenada com a Data, Produto, Unidade e quantidade total de produto na unidade.
 A ordenação pode ser: por data, por produto.
 
+
 Obs.: 
 Não é necessário criar banco de dados, pode usar vetor do Java mesmo. 
+
 A massa de dados tem que ser criada automaticamente.
-Compilar em JAR e para rodar pode ser utilizado java -jar etc, o resultado será mostrado na console mesmo linha por linha.
+
+Compilar em JAR e para rodar pode ser utilizado java -jar etc, 
+
+O resultado será mostrado na console mesmo linha por linha.
 
 
 run maven: mvn package

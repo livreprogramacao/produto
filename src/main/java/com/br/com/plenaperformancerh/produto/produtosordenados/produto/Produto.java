@@ -1,7 +1,5 @@
-package com.br.com.plenaperformancerh.produto.produtosordenados.entity.produto;
+package com.br.com.plenaperformancerh.produto.produtosordenados.produto;
 
-import com.br.com.plenaperformancerh.produto.produtosordenados.entity.unidade.Unidade;
-import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -9,16 +7,17 @@ import java.util.Objects;
  * @author Fabio Santos Almeida livre.programacao at gmail.com
  */
 public class Produto {
-    
+
     private String data;
     private String nome;
     private String ordenacao;
-    private Integer quantidade;
+    private String unidade;
 
-    public Produto(String _data, String _produtoNome, String _ordenacao) {
+    public Produto(String _data, String _produtoNome, String _ordenacao, String _unidade) {
         this.data = _data;
         this.nome = _produtoNome;
         this.ordenacao = _ordenacao;
+        this.unidade = _unidade;
     }
 
     @Override
@@ -48,10 +47,8 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "data=" + data + ", nome=" + nome + ", ordenacao=" + ordenacao + ", quantidade=" + quantidade + '}';
+        return "Produto{" + "data=" + data + ", nome=" + nome + ", ordenacao=" + ordenacao + ", unidade=" + unidade + '}';
     }
-    
-    
 
     public String getData() {
         return data;
@@ -77,14 +74,12 @@ public class Produto {
         this.ordenacao = ordenacao;
     }
 
-    public Integer getQuantidade() {
-        return quantidade;
+    public String getUnidade() {
+        return this.unidade;
     }
 
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
     }
-    
-    
-    
+
 }
