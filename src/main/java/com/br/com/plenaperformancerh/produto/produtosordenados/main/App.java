@@ -11,16 +11,19 @@ public class App {
     public static void main(String[] args) {
 
         if (args.length < 1) {
-            System.out.println("\n\n<<< ---- Informe os produtos! --- >>> ");
+            System.out.println("\n\n<<< ---- Informe a ordenação da lista de produtos. Pode ser por: data ou produto --- >>> ");
             System.exit(0);
         }
-
+        
+        boolean sortByData = "data".equalsIgnoreCase(args[0]);
 
         ProdutoController c = new ProdutoController(args);
-        c.listByData();
-        c.listByProdutoNome();
-        
-        
+        if (sortByData) {
+            c.listByData();
+        } else {
+            c.listByProdutoNome();
+        }
+
         System.out.println("\n\n<<< ---- Fim. --- >>>");
     }
 }

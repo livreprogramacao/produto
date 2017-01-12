@@ -5,6 +5,7 @@ import com.br.com.plenaperformancerh.produto.produtosordenados.produto.comparato
 import com.br.com.plenaperformancerh.produto.produtosordenados.produto.comparator.ProdutoNomeComparator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,14 +27,12 @@ public class ProdutoController {
 
     public void listByData() {
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
-        Collections.sort(produtosCollection, new ProdutoDataComparator());
-        listProdutos();
+        listProdutos(new ProdutoDataComparator());
     }
 
     public void listByProdutoNome() {
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por nome do produto --- >>>.");
-        Collections.sort(produtosCollection, new ProdutoNomeComparator());
-        listProdutos();
+        listProdutos(new ProdutoNomeComparator());
     }
 
     private void parseParameter(String[] parametros) {
@@ -45,7 +44,7 @@ public class ProdutoController {
             fields = p.split(DELIMITER);
 
             if (fields.length < 4) {
-                System.out.format("\nParâmetro Produto inválido: %s\n", p);
+                //System.out.format("\nParâmetro Produto inválido: %s\n", p);
                 continue;
             }
 
@@ -60,12 +59,12 @@ public class ProdutoController {
         String nome = fields[1];
         String ordenacao = fields[2];
         String unidade = fields[3];
-        
+
         Produto produto = new Produto(data, nome, ordenacao, unidade);
-        
+
         //System.out.println(produto);
         produtosCollection.add(produto);
-        
+
         if (!unidadesMap.containsKey(unidade)) {
             unidadesMap.put(unidade, 1);
         } else {
@@ -74,7 +73,14 @@ public class ProdutoController {
         }
     }
 
-    private void listProdutos() {
+    private void listProdutos(Comparator orderBy) {
+
+        if (produtosCollection.isEmpty()) {
+            System.out.println("Não há produtos na lista!");
+        }
+
+        Collections.sort(produtosCollection, orderBy);
+        
         for (Produto p : produtosCollection) {
             System.out.format("\nData: %5s - Produto: %-20s  - Unidade: %s - Quantidade total: %s", p.getData(), p.getNome(), p.getUnidade(), unidadesMap.get(p.getUnidade()));
         }

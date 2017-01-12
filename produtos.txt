@@ -1,11 +1,11 @@
-01/01/2017:Banana:Nome 
-02/01/2017:Café:Data
-03/01/2017:Mixirica:Nome
-04/01/2017:Ameixa:Data
-11/01/2017:Berinjela:Nome
-12/01/2017:Castanha:Data
-13/01/2017:Abacaxi:Nome
-14/01/2017:Melão:Data
+2017-01-01:Banana:Nome:ToletoSkull
+2017-01-02:Café:Data:ToletoSkull
+2017-01-03:Mixirica:Nome:ToletoFugito
+2017-01-05:Ameixa:Data:ToletoFugito
+2017-12-04:Berinjela:Nome:ToletoFugito
+2017-11-00:Castanha:Data:Guarani
+2017-07-01:Abacaxi:Nome:Guarani
+2017-02-23:Melão:Data:Guarani
+2017-02-25:Melão:Data:Carajas
 
-
-java -jar target/ProdutosOrdenados-1.0-SNAPSHOT.jar 01/01/2017:Banana:Nome 02/01/2017:Café:Data 03/01/2017:Mixirica:Nome 04/01/2017:Ameixa:Data 11/01/2017:Berinjela:Nome 12/01/2017:Castanha:Data 13/01/2017:Abacaxi:Nome 14/01/2017:Melão:Data
+2017-01-01:Banana:Nome:ToletoSkull 2017-01-02:Café:Data:ToletoSkull 2017-01-03:Mixirica:Nome:ToletoFugito 2017-01-05:Ameixa:Data:ToletoFugito 2017-12-04:Berinjela:Nome:ToletoFugito 2017-11-00:Castanha:Data:Guarani 2017-07-01:Abacaxi:Nome:Guarani 2017-02-23:Melão:Data:Guarani 2017-02-25:Melão:Data:Carajas
