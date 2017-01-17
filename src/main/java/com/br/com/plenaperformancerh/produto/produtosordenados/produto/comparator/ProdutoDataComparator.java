@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author user
+ * @author Fabio Santos Almeida livre.programacao at gmail.com
  */
 public class ProdutoDataComparator implements  Comparator<Produto>{
 
