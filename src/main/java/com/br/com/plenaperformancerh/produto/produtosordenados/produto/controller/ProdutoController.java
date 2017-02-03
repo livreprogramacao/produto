@@ -29,15 +29,15 @@ public class ProdutoController {
 
     public void listByData() {
 
-        System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
-        listProdutos(new ProdutoDataComparator());
-
         System.out.println("\n\n<<< ---- * stream * Lista ordenada de produtos por data --- >>>.");
         produtosCollection.
                 stream().
                 sorted(comparing(Produto::getData)).
                 collect(toList());
         listProdutos(null);
+
+        System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
+        listProdutos(new ProdutoDataComparator());
 
     }
 
