@@ -6,9 +6,11 @@ import com.br.com.plenaperformancerh.produto.produtosordenados.produto.comparato
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import static java.util.Comparator.comparing;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import static java.util.stream.Collectors.toList;
 
 /**
  *
@@ -16,8 +18,8 @@ import java.util.Map;
  */
 public class ProdutoController {
 
-    private List<Produto> produtosCollection = new ArrayList<Produto>();
-    private Map<String, Integer> unidadesMap = new HashMap<>();
+    private final List<Produto> produtosCollection = new ArrayList<>();
+    private final Map<String, Integer> unidadesMap = new HashMap<>();
 
     private static final String DELIMITER = ":";
 
@@ -26,6 +28,13 @@ public class ProdutoController {
     }
 
     public void listByData() {
+        System.out.println("\n\n<<< ---- * stream * Lista ordenada de produtos por data --- >>>.");
+        produtosCollection.
+                stream().
+                sorted(comparing(Produto::getData)).
+                collect(toList());
+        listProdutos(null);
+
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
         listProdutos(new ProdutoDataComparator());
     }
@@ -79,11 +88,13 @@ public class ProdutoController {
             System.out.println("Não há produtos na lista!");
         }
 
-        Collections.sort(produtosCollection, orderBy);
-        
-        for (Produto p : produtosCollection) {
-            System.out.format("\nData: %5s - Produto: %-20s  - Unidade: %s - Quantidade total: %s", p.getData(), p.getNome(), p.getUnidade(), unidadesMap.get(p.getUnidade()));
+        if (orderBy != null) {
+            Collections.sort(produtosCollection, orderBy);
         }
+
+        produtosCollection.forEach((p) -> {
+            System.out.format("\nData: %5s - Produto: %-20s  - Unidade: %s - Quantidade total: %s", p.getData(), p.getNome(), p.getUnidade(), unidadesMap.get(p.getUnidade()));
+        });
     }
 
 }

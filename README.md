@@ -20,4 +20,4 @@ O resultado será mostrado na console mesmo linha por linha.
 
 run with maven: 
 
-mvn package && java -jar target/ProdutosOrdenados-1.0-SNAPSHOT.jar data 2017-01-01:Banana:Nome:ToletoSkull 2017-01-02:Café:Data:ToletoSkull 2017-01-03:Mixirica:Nome:ToletoFugito 2017-01-05:Ameixa:Data:ToletoFugito 2017-12-04:Berinjela:Nome:ToletoFugito 2017-11-00:Castanha:Data:Guarani 2017-07-01:Abacaxi:Nome:Guarani 2017-02-23:Melão:Data:Guarani 2017-02-25:Melão:Data:Carajas@debian:produtos-ordenados
+mvn package && java -jar target/ProdutosOrdenados-1.0-SNAPSHOT.jar data 2017-01-01:Banana:Nome:ToletoSkull 2017-01-02:Café:Data:ToletoSkull 2017-01-03:Mixirica:Nome:ToletoFugito 2017-01-05:Ameixa:Data:ToletoFugito 2017-12-04:Berinjela:Nome:ToletoFugito 2017-11-25:Castanha:Data:Guarani 2017-07-01:Abacaxi:Nome:Guarani 2017-02-23:Melão:Data:Guarani 2017-02-25:Melão:Data:Carajas@debian:produtos-ordenados
