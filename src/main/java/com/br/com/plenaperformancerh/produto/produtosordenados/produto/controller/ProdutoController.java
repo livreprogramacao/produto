@@ -28,6 +28,10 @@ public class ProdutoController {
     }
 
     public void listByData() {
+
+        System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
+        listProdutos(new ProdutoDataComparator());
+
         System.out.println("\n\n<<< ---- * stream * Lista ordenada de produtos por data --- >>>.");
         produtosCollection.
                 stream().
@@ -35,8 +39,6 @@ public class ProdutoController {
                 collect(toList());
         listProdutos(null);
 
-        System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
-        listProdutos(new ProdutoDataComparator());
     }
 
     public void listByProdutoNome() {
