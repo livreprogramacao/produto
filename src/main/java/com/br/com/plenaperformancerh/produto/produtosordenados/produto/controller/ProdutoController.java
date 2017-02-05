@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toList;
  */
 public class ProdutoController {
 
-    private final List<Produto> produtosCollection = new ArrayList<>();
+    private List<Produto> produtosCollection = new ArrayList<>();
     private final Map<String, Integer> unidadesMap = new HashMap<>();
 
     private static final String DELIMITER = ":";
@@ -30,10 +30,11 @@ public class ProdutoController {
     public void listByData() {
 
         System.out.println("\n\n<<< ---- * stream * Lista ordenada de produtos por data --- >>>.");
-        produtosCollection.
+        List<Produto> n = produtosCollection.
                 stream().
                 sorted(comparing(Produto::getData)).
                 collect(toList());
+        produtosCollection = n;
         listProdutos(null);
 
         System.out.println("\n\n<<< ---- Lista ordenada de produtos por data --- >>>.");
